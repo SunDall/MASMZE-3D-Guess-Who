@@ -1,0 +1,177 @@
+/*© SunDall, 2026*/
+:root {
+    --dark: #3e2f23;
+    --border: #422800;
+    --lightdark: #5a4632;
+    --precaramel: #a67c52;
+    --caramel: #c19a6b;
+    --golden: #d4af7f;
+    --light: #f5e6cc;
+}
+*{
+    box-sizing: border-box;
+}
+body{
+    align-items: center;
+    background: linear-gradient(var(--precaramel), var(--dark));
+    background-attachment: fixed;
+    display: flex;
+    font-family: 'Raleway', sans-serif;
+    font-size: large;
+    justify-content: center;
+    margin: 0;
+    height: 100vh;
+    overflow-x: hidden;
+    padding: 0;
+}
+#menu{
+    box-shadow: var(--border) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    padding:10px;
+    height: 100vh;
+    transition: top 0.3s ease-in-out;
+    width: 60px;
+}
+#menu.active{
+    width:300px;
+    transition: 0.2s ease-in-out;
+}
+.settingsTopContainer{
+    align-items: flex-start;
+    display: flex;
+    justify-content: flex-start;
+}
+.settingsButton {
+    align-items: center;
+    display:flex;
+    background-color: var(--light);
+    border: 2px solid;
+    box-shadow: var(--border) 4px 4px 0 0;
+    cursor: pointer;
+    flex-shrink: 0;
+    border-radius: 8px;
+    font-size: 20px;
+    justify-content: center;
+    line-height: 1;
+    margin-right: 10px;
+    height: 40px;
+    width: 40px;
+}
+.settingsButton .fa-solid.fa-gear, .fa-solid.fa-plus, .fa-solid.fa-xmark{
+    transition: 0.2s ease-in-out;
+}
+.settingsButton:hover .fa-solid.fa-gear, .addPicsButton:hover .fa-solid.fa-plus, .clearPlayground:hover .fa-solid.fa-xmark{
+    color: chocolate;
+    transform: rotate(90deg);
+}
+
+.fa-solid.fa-gear.activated{
+    color: chocolate;
+    transform: rotate(90deg);
+}
+.sizeBlock {
+  display: none;
+  height:20px;
+}
+
+.sizeBlock.active {
+  display: flex;
+  flex-direction: column;
+}
+.sizeLabel{
+    margin-bottom:5px;
+}
+.sizeSlider{
+    appearance: none;
+    background: var(--dark);
+    border-radius: 15px;
+}
+
+.clearPlayground{
+    margin-top: auto;
+    margin-bottom: 10px;
+}
+.addPicsButton, .clearPlayground{
+    align-items: center;
+    background-color: var(--light);
+    border: 2px solid;
+    border-radius: 8px;
+    box-shadow: var(--border) 4px 4px 0 0;
+    cursor: pointer;
+    display: flex;
+    flex-shrink: 0;
+    font-size: 20px;
+    justify-content: center;
+    height: 40px;
+}
+.addPicsButton.hid{
+    display: none;
+}
+
+#playGround{
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 2% 1% 2% 2%;
+    padding: 4% 2.5% 4% 2.5%;
+    max-height: 95vh;
+    overflow-y: auto;
+    transition: 0.2s ease-in-out;
+    width: 100%;
+}
+.card{
+    border-radius: 15px;
+    border:solid var(--golden) 5px;
+    align-items: center;
+    color: var(--light);
+    font-size: 60px;
+    justify-content: center;
+    display: flex;
+    flex: 0 0;
+    flex-wrap: wrap;
+    position:relative;
+    overflow: hidden;
+    transition:0.2s ease;
+    margin: 10px;
+}
+
+.card.clicked{
+    content: "K.O.";
+    font-family: 'Gloria Hallelujah';
+}
+.card.clicked img{
+    opacity: 0.2;
+}
+.card img{
+    transition: 0.2s ease-in-out;
+}
+.card span.overlay-text {
+    position: absolute;
+    color: red;
+    font-weight: bold;
+    z-index: 10; 
+    opacity: 1;
+}
+img{
+    display:flex;
+}
+.picture{
+    align-items: center;
+    border-radius: 10px;
+    justify-content: center;
+    display: flex;
+    overflow: hidden;
+}
+.picture .img{
+    object-fit: cover;
+    object-position: center;
+}
+.imgCaption{
+    align-items: center;
+    margin: 5px auto;
+    justify-content: center;
+    font-family: 'Raleway', sans-serif;
+}
