@@ -10,8 +10,14 @@
 }
 *{
     box-sizing: border-box;
+    scrollbar-color: #888 transparent;
+    scrollbar-width: thin;
+    transition: 0.3s ease-in-out;
 }
-body{
+::-webkit-scrollbar-thumb {
+    transition: 0.3s ease-in-out;
+}
+body{   
     align-items: center;
     background: linear-gradient(var(--precaramel), var(--dark));
     background-attachment: fixed;
@@ -65,11 +71,25 @@ body{
     color: chocolate;
     transform: rotate(90deg);
 }
-
+.refreshPlayground:hover .fa-solid.fa-rotate-left{
+    color: chocolate;
+    transform: rotate(-270deg);
+}
 .fa-solid.fa-gear.activated{
     color: chocolate;
     transform: rotate(90deg);
 }
+
+.input{
+    display: none;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    margin: 10px 5px;
+}
+.input.active{
+    display: flex;
+}
+
 .sizeBlock {
   display: none;
   height:20px;
@@ -92,7 +112,10 @@ body{
     margin-top: auto;
     margin-bottom: 10px;
 }
-.addPicsButton, .clearPlayground{
+.refreshPlayground{
+    margin-bottom: 10px; /*Should be 5 when more buttons will be added*/
+}
+.addPicsButton, .clearPlayground, .refreshPlayground{
     align-items: center;
     background-color: var(--light);
     border: 2px solid;
