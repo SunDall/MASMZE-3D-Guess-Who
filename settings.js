@@ -56,7 +56,7 @@ function createMenu() {
 
   const fileInput = document.getElementById("fileInput");
   addPicsButton.addEventListener("click", () => {
-    if (input.value != 'Paste JSON-styled text to add images and press the button below [{"name": "GreatCorn", "url": "https://avatars.githubusercontent.com/u/31311274?v=4"}]' || input.value != "" || input.value != " ") {
+    if (input.value !== 'Paste JSON-styled text to add images and press the button below [{"name": "GreatCorn", "url": "https://avatars.githubusercontent.com/u/31311274?v=4"}]' && input.value !== "") {
       try {
         playgroundCards(input.value);
       } catch (err) {
