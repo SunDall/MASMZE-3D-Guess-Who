@@ -178,12 +178,14 @@ body{
 }
 .card img{
     transition: 0.2s ease-in-out;
+    user-select: none;
 }
 .card span.overlay-text {
     position: absolute;
     color: red;
     font-weight: bold;
-    z-index: 10; 
+    user-select: none;
+    z-index: 9; 
     opacity: 1;
 }
 img{
@@ -245,6 +247,7 @@ img{
     width: auto;
     max-height: 95vh;
     max-width: 90%;
+    z-index: 1000;
 }
 .myCard:hover{
     opacity: 1;

@@ -12,18 +12,14 @@ document.addEventListener('click', function () {
     contextMenu.style.display = 'none';
 });
 
-function myCardListener(image) {
+function myCardListener(image, text) {
     const myCardButton = document.getElementById('myCardButton');
     const myCard = document.createElement('img');
     myCard.className = 'myCard';
     myCardButton.addEventListener('click', () => {
         document.querySelectorAll('.myCard').forEach(card => { card.remove(); })
         myCard.src = image;
-        let cardName = image.split("/").pop();
-        if (cardName.lastIndexOf(".") !== -1) {
-            cardName = cardName.substring(0, cardName.lastIndexOf("."));
-        };
-        myCard.title = cardName;
+        myCard.title = text;
         document.body.appendChild(myCard);
     })
 }

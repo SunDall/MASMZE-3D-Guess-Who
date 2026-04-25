@@ -44,11 +44,12 @@ function playgroundCards(images) {
             contextMenu.style.left = e.clientX + 'px';
             contextMenu.style.top = e.clientY + 'px';
             contextMenu.style.display = 'block';
-            image = e.target.getAttribute('src');
-            myCardListener(image)
+            let txt = e.target.closest(".card");
+            txt = txt.querySelector(".imgCaption").textContent;
+            let img = e.target.getAttribute('src');
+            myCardListener(img, txt)
         })
     });
-
     appearance();
 }
 
