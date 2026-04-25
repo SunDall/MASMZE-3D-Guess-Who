@@ -113,7 +113,6 @@ const addPicsButton = document.querySelector("addPicsButton");
   })
 });
 
-
 sizeSlider.addEventListener("input", () => {
   setSetting("size", sizeSlider.value);
   document.querySelector(".sizeLabel").textContent = "Picture size: " + sizeSlider.value;
@@ -125,7 +124,6 @@ document.querySelector(".clearPlayground").addEventListener("click", () => {
 
 document.querySelector(".restoreCards").addEventListener("click", () => {
   const cards = document.querySelectorAll(".card.clicked");
-  //console.log(cards);
   cards.forEach(card => {
     card.classList.remove('clicked');
     const existingSpan = card.querySelector(".overlay-text");

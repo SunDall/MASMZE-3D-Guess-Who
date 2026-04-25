@@ -39,7 +39,16 @@ function playgroundCards(images) {
                 card.appendChild(span);
             }
         });
+        picture.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            contextMenu.style.left = e.clientX + 'px';
+            contextMenu.style.top = e.clientY + 'px';
+            contextMenu.style.display = 'block';
+            image = e.target.getAttribute('src');
+            myCardListener(image)
+        })
     });
+
     appearance();
 }
 
@@ -67,20 +76,6 @@ function appearance() {
         element.style.fontSize = (settings.size) + "px";
     });
 }
-/*
-document.addEventListener("click", (event) => {
-    if (event.target.closest(".fa-solid.fa-gear") || event.target.closest(".sizeBlock") || event.target.closest(".settingsButton") || event.target.closest("#menu") || event.target.closest(".userInput")) { return; }
-    try {
-        gear.classList.remove("activated");
-        menu.classList.remove("active");
-        sizeBlock.classList.remove("active");
-        document.querySelector('.userInput').classList.remove("active");
-        document.querySelector(".clearPlayground").innerHTML = '<i class="fa-solid fa-xmark"></i>';
-        document.querySelector(".addPicsButton").innerHTML = '<i class="fa-solid fa-plus"></i>';
-    } catch (error) {
-        console.log(error);
-    }
-});*/
 
 window.addEventListener("settingsChanged", (event) => {
     if (event.detail.key === "size") {
