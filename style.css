@@ -88,7 +88,7 @@ body{
     margin: 10px 0;
     padding: 10px;
     min-height: 2lh;
-    max-height:5.4lh;
+    max-height:40vh;
     resize: vertical;
     width: 100%;
     word-wrap: break-word;
@@ -242,9 +242,12 @@ img{
     object-fit: contain;
     left:2%;
     height: 60px;
-    width: 90px;
+    width: auto;
+    max-height: 95vh;
+    max-width: 90%;
 }
 .myCard:hover{
     opacity: 1;
-    transform: scale(8);
+    height: 95vh;
+    width: auto;
 }
