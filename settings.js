@@ -21,10 +21,10 @@ function createMenu() {
   sizeBlock.className = "sizeBlock";
 
   sizeSlider = document.createElement("input");
-  sizeSlider.className = "sizeSlider";
+  sizeSlider.className = "sizeSlider";  
   sizeSlider.type = "range";
   sizeSlider.min = "10";
-  sizeSlider.max = "120";
+  sizeSlider.max = "100";
   sizeSlider.value = "20";
   const sizeLabel = document.createElement("label");
   sizeLabel.className = "sizeLabel";
@@ -38,16 +38,18 @@ function createMenu() {
   clearPlayground.innerHTML = '<i class="fa-solid fa-xmark"></i>';
   menu.appendChild(clearPlayground);
 
-  const refreshPlayground = document.createElement("button");
-  refreshPlayground.className = "refreshPlayground";
-  refreshPlayground.innerHTML = '<i class="fa-solid fa-rotate-left"></i>';
-  menu.appendChild(refreshPlayground);
+  const restoreCards = document.createElement("button");
+  restoreCards.className = "restoreCards";
+  restoreCards.innerHTML = '<i class="fa-solid fa-rotate-left"></i>';
+  menu.appendChild(restoreCards);
 
-  const input = document.createElement('input');
-  input.type = 'text';
-  input.className = 'input';
-  input.value = 'Paste JSON-styled text to add images and press the button below [{"name": "GreatCorn", "url": "https://avatars.githubusercontent.com/u/31311274?v=4"}]'
-  menu.appendChild(input);
+  const userInput = document.createElement('textarea');
+  const placeholder = 'Paste JSON-styled text to add images and press the button below\n[\n  {\n    "name": "GreatCorn",\n    "url": "https://avatars.githubusercontent.com/u/31311274?v=4"\n  }\n]';
+  userInput.type = 'text';
+  userInput.rows = 5;
+  userInput.className = 'userInput';
+  userInput.value = placeholder;
+  menu.appendChild(userInput);
 
   const addPicsButton = document.createElement("button");
   addPicsButton.className = "addPicsButton";
@@ -56,9 +58,9 @@ function createMenu() {
 
   const fileInput = document.getElementById("fileInput");
   addPicsButton.addEventListener("click", () => {
-    if (input.value !== 'Paste JSON-styled text to add images and press the button below [{"name": "GreatCorn", "url": "https://avatars.githubusercontent.com/u/31311274?v=4"}]' && input.value !== "") {
+    if (userInput.value !== placeholder && userInput.value !== "") {
       try {
-        playgroundCards(input.value);
+        playgroundCards(userInput.value);
       } catch (err) {
         alert("Cannot create valid JSON due to: " + err.message);
       }
@@ -75,8 +77,6 @@ function createMenu() {
   });
 
 }
-
-
 createMenu();
 
 const settings = JSON.parse(localStorage.getItem("settings"));
@@ -103,8 +103,13 @@ const addPicsButton = document.querySelector("addPicsButton");
       addPicsButton.innerHTML = '<i class="fa-solid fa-plus"></i>';
     } else setTimeout(() => { addPicsButton.innerHTML = 'Add Images'; }, 100);
 
-    let input = document.querySelector('.input');
-    input.classList.toggle("active");
+    let userInput = document.querySelector('.userInput');
+    userInput.classList.toggle("active");
+
+    let restoreCards = document.querySelector('.restoreCards');
+    if (restoreCards.innerHTML === 'Restore Cards') {
+      restoreCards.innerHTML = '<i class="fa-solid fa-rotate-left"></i>';
+    } else setTimeout(() => { restoreCards.innerHTML = 'Restore Cards'; }, 100);
   })
 });
 
@@ -118,7 +123,7 @@ document.querySelector(".clearPlayground").addEventListener("click", () => {
   document.getElementById("playGround").innerHTML = "";
 });
 
-document.querySelector(".refreshPlayground").addEventListener("click", () => {
+document.querySelector(".restoreCards").addEventListener("click", () => {
   const cards = document.querySelectorAll(".card.clicked");
   //console.log(cards);
   cards.forEach(card => {

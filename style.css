@@ -14,9 +14,6 @@
     scrollbar-width: thin;
     transition: 0.3s ease-in-out;
 }
-::-webkit-scrollbar-thumb {
-    transition: 0.3s ease-in-out;
-}
 body{   
     align-items: center;
     background: linear-gradient(var(--precaramel), var(--dark));
@@ -71,7 +68,7 @@ body{
     color: chocolate;
     transform: rotate(90deg);
 }
-.refreshPlayground:hover .fa-solid.fa-rotate-left{
+.restoreCards:hover .fa-solid.fa-rotate-left{
     color: chocolate;
     transform: rotate(-270deg);
 }
@@ -80,13 +77,24 @@ body{
     transform: rotate(90deg);
 }
 
-.input{
+.userInput{
+    background-color: var(--light);
+    border: 2px solid;
+    border-radius: 7px;
+    box-shadow: var(--border) 4px 4px 0 0;
     display: none;
     font-family: 'Raleway', sans-serif;
     font-size: 16px;
-    margin: 10px 5px;
+    margin: 10px 0;
+    padding: 10px;
+    min-height: 2lh;
+    max-height:5.4lh;
+    resize: vertical;
+    width: 100%;
+    word-wrap: break-word;
+    white-space: pre;
 }
-.input.active{
+.userInput.active{
     display: flex;
 }
 
@@ -112,10 +120,10 @@ body{
     margin-top: auto;
     margin-bottom: 10px;
 }
-.refreshPlayground{
+.restoreCards{
     margin-bottom: 10px; /*Should be 5 when more buttons will be added*/
 }
-.addPicsButton, .clearPlayground, .refreshPlayground{
+.addPicsButton, .clearPlayground, .restoreCards{
     align-items: center;
     background-color: var(--light);
     border: 2px solid;
@@ -162,8 +170,8 @@ body{
 }
 
 .card.clicked{
-    content: "K.O.";
     font-family: 'Gloria Hallelujah';
+    content: "K.O.";
 }
 .card.clicked img{
     opacity: 0.2;
@@ -197,4 +205,46 @@ img{
     margin: 5px auto;
     justify-content: center;
     font-family: 'Raleway', sans-serif;
+}
+#contextMenu{
+    background: var(--caramel);
+    border: 2px solid;
+    box-shadow: var(--border) 4px 4px 0 0;
+    border-radius: 5px;
+    display: none;
+    position: fixed;
+    margin:0;
+    z-index: 100;
+}
+#contextMenu ul{
+    margin: 0;
+    padding: 5px;
+    list-style: none;
+}
+#contextMenu li{
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px 10px;
+    position: relative;
+}
+#contextMenu li:hover{
+    background: var(--light);
+}
+.myCard{
+    border-radius: 15px;
+    border:solid var(--golden) 2px;
+    background-color: var(--precaramel);
+    opacity: 0.5;
+    display:block;
+    position: fixed;
+    top:2%;
+    transform-origin: top left;
+    object-fit: contain;
+    left:2%;
+    height: 60px;
+    width: 90px;
+}
+.myCard:hover{
+    opacity: 1;
+    transform: scale(8);
 }
